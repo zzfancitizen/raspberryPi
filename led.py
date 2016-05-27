@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #!/usr/bin/env python
 import RPi.GPIO as GPIO
 import time
@@ -13,3 +14,6 @@ while True:
 	time.sleep(1)
 
 
+=======
+import time
+>>>>>>> c653a8bd0b8d57e1b8b001ffede8c2bd6ab765d4
