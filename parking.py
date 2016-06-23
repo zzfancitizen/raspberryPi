@@ -3,10 +3,12 @@ import time
 
 class ParkingLot(object):
 
-	IN1 = 11
-	IN2 = 12
-	IN3 = 13
-	IN4 = 15
+	def __init__(self):
+		self.IN1 = 11
+		self.IN2 = 12
+		self.IN3 = 13
+		self.IN4 = 15
+		self.status = 0
 
 	def setStep(self, w1, w2, w3, w4):
 		GPIO.output(self.IN1, w1)
@@ -40,18 +42,25 @@ class ParkingLot(object):
 			time.sleep(delay)
 
 	def openGate(self):
-
-		self.backward(0.005, 128)
-
-		self.stop()
-		time.sleep(0.5)	
+		if self.status == 0:
+			return "Gate already opened!"
+		else:
+			self.backward(0.005, 128)
+			self.stop()
+			time.sleep(0.5)	
+			self.status = 0			
+			return "Gate opened!"
 
 	def closeGate(self):
+		if self.status == 1:
+			return "Gate already closed!"
+		else:
+			self.forward(0.005, 128)
+			self.stop()
+			time.sleep(0.5)
+			self.status = 1
+			return "Gate closed!"			
 
-		self.forward(0.005, 128)
-
-		self.stop()
-		time.sleep(0.5)
 
 	def setup(self):
 		GPIO.setwarnings(False)
