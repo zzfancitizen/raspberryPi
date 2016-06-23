@@ -40,18 +40,18 @@ class ParkingLot(object):
 			time.sleep(delay)
 
 	def openGate(self):
-		print "OpenGate"
+
 		self.backward(0.005, 128)
 
 		self.stop()
-		time.sleep(3)
+		time.sleep(0.5)	
 
 	def closeGate(self):
-		print "closeGate"
+
 		self.forward(0.005, 128)
 
 		self.stop()
-		time.sleep(3)
+		time.sleep(0.5)
 
 	def setup(self):
 		GPIO.setwarnings(False)
