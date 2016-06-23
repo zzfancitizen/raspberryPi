@@ -1,6 +1,6 @@
 
 from parking import ParkingLot
-from bottle import route, get, post, run, request, template
+from bottle import route, post, run
 
 lot = ParkingLot()
 
